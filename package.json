@@ -10,6 +10,7 @@
     "scripts": {
       "server": "node server/server.js",
       "client": "npm start --prefix client",
+      "postinstall": "(npm install --ignore-scripts); (cd server && npm install); (cd client && npm install); (curl -L https://install.meilisearch.com | sh)",
       "dev": "concurrently \"npm run server\" \"npm run client\" \"./meilisearch --master-key='masterkeyforminoritybusiness'\" "
     }
 }
