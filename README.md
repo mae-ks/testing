@@ -5,3 +5,9 @@
 "git merge origin main" to merge the changes from the remote repository into your current branch
 
 If there are conflicts, commit them into their own branch but don't push
+
+git init
+git remote add origin ...
+git pull origin main
+npm run postinstall
+npm run dev
