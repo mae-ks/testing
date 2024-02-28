@@ -6,8 +6,15 @@
 
 If there are conflicts, commit them into their own branch but don't push
 
+
+Git commands for a fresh pull:
+
 git init
+
 git remote add origin ...
+
 git pull origin main
-npm run postinstall
+
+npm i
+
 npm run dev
