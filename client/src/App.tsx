@@ -24,7 +24,7 @@ const App = () => {
                     onChange={handleInputChange}
                 />
                 <ul>
-                    <Search movie_name={searchTerm} />
+                    <Search product_name={searchTerm} />
                 </ul>
             </div>
             <Nav />

@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
 interface SearchProps {
-    movie_name: string;
+    product_name: string;
 }
 
-function Search({ movie_name } : SearchProps) {
+function Search({ product_name } : SearchProps) {
 
     const [search_results, setResults] = useState([]);
     useEffect(() => {
-        if (movie_name.trim() !== '') {
-            fetch('/search/movies/' + movie_name)
+        if (product_name.trim() !== '') {
+            fetch('/search/products/' + product_name)
             .then((res) => res.json())
             .then((data) => {setResults(data)});
         } else {
             setResults([]);
         }
-    }, [movie_name]);
+    }, [product_name]);
 
     const results = JSON.parse(JSON.stringify(search_results));
-    const listItems = results.map((movie: any) =>
+    const listItems = results.map((product: any) =>
         <div>
-            <li>{movie.title}</li>
-            <li>{movie.overview}</li>
-            <li>{movie.genres}</li>
+            <li>{product.Name}</li>
+            <li>{product.Price}</li>
+            <li>{product.Description}</li>
         </div>
     );
-  
     return listItems;
 };
 
