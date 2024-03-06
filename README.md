@@ -18,3 +18,5 @@ git pull origin main
 npm i
 
 npm run dev
+
+"npm run refresh" to sync database
