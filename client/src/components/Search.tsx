@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 // import {redirect} from 'react-router-dom';
 import './Search.css';
+=======
+>>>>>>> main
 
 interface SearchProps {
     product_name: string;
 }
 
+<<<<<<< HEAD
 function SearchFn({ product_name } : SearchProps) {
+=======
+function Search({ product_name } : SearchProps) {
+>>>>>>> main
 
     const [search_results, setResults] = useState([]);
     useEffect(() => {
@@ -20,6 +27,7 @@ function SearchFn({ product_name } : SearchProps) {
     }, [product_name]);
 
     const results = JSON.parse(JSON.stringify(search_results));
+<<<<<<< HEAD
     const listItems = results.map((product: any) => (
         <li key={product.Id} className="search-result-item">
             <a href={`/product/${product.ProductID}`}>
@@ -67,4 +75,16 @@ const Search = () => {
     )    
 }
 
+=======
+    const listItems = results.map((product: any) =>
+        <div>
+            <li>{product.Name}</li>
+            <li>{product.Price}</li>
+            <li>{product.Description}</li>
+        </div>
+    );
+    return listItems;
+};
+
+>>>>>>> main
 export default Search;
