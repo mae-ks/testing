@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import {redirect} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import './Search.css';
 
 interface SearchProps {
     product_name: string;
 }
 
-function SearchFn({ product_name } : SearchProps) {
+export function SearchFn({ product_name } : SearchProps) {
 
     const [search_results, setResults] = useState([]);
     useEffect(() => {
@@ -33,22 +33,16 @@ function SearchFn({ product_name } : SearchProps) {
     return listItems;
 };
 
-function EnterSearch({e}) {
-    if(e.key === "Enter"){
-        // return <redirect to='./SearchResults.tsx'></redirect>
-        return (
-            <div>
-                <h1>HELLO</h1>
-            </div>
-        )
-    }
-    return false;
-}
 const Search = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const handleInputChange = (event: any) => {setSearchTerm(event.target.value)};
 
+    const navigate = useNavigate();
+    const handleEnter = (event: any) => {if (event.key === 'Enter') {
+        navigate("/search/" + searchTerm);
+    }};
+    
     return (
         <div id="SearchDropdown" class="SearchContent">
             <form id="search">
@@ -57,7 +51,7 @@ const Search = () => {
                     placeholder="Search product..."
                     value={searchTerm}
                     onChange={handleInputChange}
-                    onkeypress={EnterSearch}
+                    onKeyDown={handleEnter}
                 />
             </form>
             <ul>

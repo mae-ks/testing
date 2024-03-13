@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import {useParams} from "react-router-dom";
+import {SearchFn} from './Search.tsx';
 
 const SearchResults = () => {
+    const searchTag = String(useParams().search_tag);
     return (
-        <div>
-            <h1>HELLO</h1>
-        </div>
+        <SearchFn product_name={searchTag} />
     )
 }
 
